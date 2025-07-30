@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
    initCarousel();
    initPerformanceMonitoring();
    initScheduleSystem();
-   initNewsSystem(); 
+   initNewsSystem();
 
    console.log('🚀 All systems initialized');
 
@@ -3336,9 +3336,10 @@ function initNewsSystem() {
 
 // Global utility functions for news
 window.NewsManager = {
-   showIndividualNews: (newsId) => window.newsManager?.showIndividualNews(newsId),
+   showIndividualNews: (newsId) =>
+      window.newsManager?.showIndividualNews(newsId),
    closeIndividualNews: () => window.newsManager?.closeIndividualNews(),
-   retry: () => window.newsManager?.retry()
+   retry: () => window.newsManager?.retry(),
 };
 
 // News debugging utilities
@@ -3354,15 +3355,15 @@ window.newsDebug = {
          content: [
             { type: 'paragraph', text: 'Это тестовый контент новости.' },
             { type: 'heading', level: 2, text: 'Тестовый заголовок' },
-            { type: 'paragraph', text: 'Еще один абзац тестового контента.' }
+            { type: 'paragraph', text: 'Еще один абзац тестового контента.' },
          ],
          author: 'Тестовый автор',
          date: new Date().toISOString().split('T')[0],
          category: 'main',
          categoryName: 'Основные',
-         tags: ['тест']
+         tags: ['тест'],
       };
-      
+
       if (window.newsManager) {
          window.newsManager.newsData = { news: [testNews] };
          window.newsManager.showIndividualNews('test-news');
