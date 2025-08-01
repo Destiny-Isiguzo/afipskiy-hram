@@ -352,7 +352,7 @@ p {
 
 .nav-link {
    color: var(--color-black);
-   font-size: 1.03rem;
+   font-size: 1.01rem;
    transition: all .35s ease;
 }
 
@@ -384,7 +384,7 @@ p {
       flex-direction: column;
       align-items: center;
       gap: 2.5rem;
-      padding-top: 9rem;
+      padding-top: 10rem;
       transform: translateX(100%);
       transition: transform .35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       z-index: 1001;
@@ -431,7 +431,7 @@ p {
    }
 
    .nav-link {
-      font-size: 1.05rem;
+      font-size: 1.03rem;
    }
 
    .divider-line {
@@ -2489,8 +2489,8 @@ input[type="checkbox"]:focus-visible {
    background: rgba(0, 0, 0, 0.8);
    color: white;
    border: none;
-   width: 3rem;
-   height: 3rem;
+   width: clamp(2.1rem, 1.7831rem + 1.3521vw, 3rem);
+   height: clamp(2.1rem, 1.7831rem + 1.3521vw, 3rem);
    border-radius: 50%;
    cursor: pointer;
    display: flex;
@@ -2557,12 +2557,12 @@ input[type="checkbox"]:focus-visible {
 /* Article Header */
 .article-header {
    margin-bottom: 3rem;
-   text-align: center;
+   /* text-align: center; */
 }
 
 .article-meta {
    display: flex;
-   justify-content: center;
+   /* justify-content: center; */
    align-items: center;
    gap: 1.5rem;
    margin-bottom: 1.5rem;
@@ -2589,20 +2589,20 @@ input[type="checkbox"]:focus-visible {
 .article-title {
    color: var(--color-black);
    font-family: var(--font-primary);
-   font-size: clamp(1.5rem, 1.1479rem + 1.5023vw, 2.5rem);
+   font-size: clamp(1.3rem, 0.8775rem + 1.8028vw, 2.5rem);
    font-weight: var(--font-weight-4);
    line-height: 1.3;
-   text-align: center;
+   /* text-align: center;
    margin-left: auto;
-   margin-right: auto;
+   margin-right: auto; */
    margin-bottom: 2rem;
-   max-width: 45rem;
+   /* max-width: 45rem; */
 }
 
 .article-info {
    display: flex;
-   justify-content: center;
-   align-items: center;
+   /* justify-content: center;
+   align-items: center; */
    gap: clamp(1rem, 0.6127rem + 1.6526vw, 2.1rem);
    flex-wrap: wrap;
    font-size: .9rem;
@@ -3049,8 +3049,6 @@ input[type="checkbox"]:focus-visible {
    .article-close {
       top: 1rem;
       right: 1rem;
-      width: 2.5rem;
-      height: 2.5rem;
       font-size: 1rem;
    }
 
@@ -3206,3 +3204,52 @@ footer {
 /* ######################## */
 /* ### О храме ### */
 /* ###################### */
+
+.about-header {
+   background-color: rgb(255, 255, 255);
+   box-shadow: 0 5px 25px rgba(0 0 0 / .06);
+   /* border-bottom: 1px solid #e8e8e8; */
+   padding: clamp(1rem, 0.9296rem + 0.3005vw, 1.2rem) clamp(0.85rem, -1.3155rem + 9.2394vw, 7rem);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 2rem;
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+}
+
+.about-back-btn {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   left: clamp(0.85rem, -1.3155rem + 9.2394vw, 7rem);
+   color: var(--color-black);
+   font-size: 1.035rem;
+}
+
+.about-header-title {
+   color: var(--color-black);
+   font-size: 1.6rem;
+}
+
+.about-body {
+   padding-inline: clamp(0.85rem, -1.3155rem + 9.2394vw, 7rem);
+   margin-bottom: 1.25rem;
+}
+
+.about-content-wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: var(--gap-3);
+}
+
+.about-content-title {
+   font-size: 1.15rem;
+}
+
+.about-content {
+   display: flex;
+   flex-direction: column;
+   gap: var(--gap-1);
+}

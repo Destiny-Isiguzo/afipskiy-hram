@@ -67,13 +67,6 @@
     </div>
   </aside>
 
-  <!-- <div class="mobile-top-menu">
-      <i class="bi bi-telephone-fill"></i>
-      <a href="tel:+79184141114">
-         +7 (918) 414-11-14
-      </a>
-   </div> -->
-
   <!-- Navigation Overlay -->
   <div class="nav-overlay" id="nav-overlay"></div>
 
@@ -509,19 +502,19 @@
         <nav class="news-tabs" role="tablist" aria-label="Категории новостей">
           <button type="button" class="news-tab active" role="tab" aria-selected="true" aria-controls="news-content"
             data-category="main" id="tab-main">
-            <!-- <i class="bi bi-newspaper"></i> -->
+            <!-- <i class="bi bi-newspaper" aria-hidden="true"></i> -->
             <span>Основные</span>
           </button>
 
           <button type="button" class="news-tab" role="tab" aria-selected="false" aria-controls="news-content"
             data-category="workshop" id="tab-workshop">
-            <!-- <i class="bi bi-tools"></i> -->
+            <!-- <i class="bi bi-tools" aria-hidden="true"></i> -->
             <span>Мастерские</span>
           </button>
 
           <button type="button" class="news-tab" role="tab" aria-selected="false" aria-controls="news-content"
             data-category="support-svo" id="tab-support-svo">
-            <!-- <i class="bi bi-heart-fill"></i> -->
+            <!-- <i class="bi bi-heart-fill" aria-hidden="true"></i> -->
             <span>Поддержка СВО</span>
           </button>
         </nav>
@@ -530,7 +523,7 @@
         <div class="news-controls">
           <div class="news-search">
             <input type="search" id="news-search" placeholder="Поиск новостей..." aria-label="Поиск по новостям">
-            <i class="bi bi-search"></i>
+            <i class="bi bi-search" aria-hidden="true"></i>
           </div>
 
           <div class="news-sort">
@@ -554,11 +547,11 @@
         <!-- Error State -->
         <div id="news-error" class="news-error" style="display: none;">
           <div class="error-content">
-            <i class="bi bi-exclamation-triangle"></i>
+            <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
             <h3>Ошибка загрузки</h3>
             <p>Не удалось загрузить новости</p>
             <button type="button" onclick="NewsManager.retry()">
-              <i class="bi bi-arrow-clockwise"></i>
+              <i class="bi bi-arrow-clockwise" aria-hidden="true"></i>
               Повторить
             </button>
           </div>
@@ -579,16 +572,16 @@
 
         <!-- News Stats -->
         <!-- <div class="news-stats" style="display: none;">
-               <div class="stats-item">
-                  <i class="bi bi-newspaper"></i>
-                  <span>Всего: <span id="total-news">0</span></span>
-               </div>
-
-               <div class="stats-item">
-                  <i class="bi bi-eye"></i>
-                  <span>Показано: <span id="shown-news">0</span></span>
-               </div>
-            </div> -->
+          <div class="stats-item">
+            <i class="bi bi-newspaper" aria-hidden="true"></i>
+            <span>Всего: <span id="total-news">0</span></span>
+          </div>
+        
+          <div class="stats-item">
+            <i class="bi bi-eye" aria-hidden="true"></i>
+            <span>Показано: <span id="shown-news">0</span></span>
+          </div>
+        </div> -->
       </div>
     </section>
 
@@ -620,17 +613,17 @@
 
           <div class="article-info">
             <div class="article-author">
-              <i class="bi bi-person"></i>
+              <i class="bi bi-person" aria-hidden="true"></i>
               <span></span>
             </div>
 
             <div class="article-reading-time">
-              <i class="bi bi-clock"></i>
+              <i class="bi bi-clock" aria-hidden="true"></i>
               <span></span>
             </div>
 
             <div class="article-word-count">
-              <i class="bi bi-file-text"></i>
+              <i class="bi bi-file-text" aria-hidden="true"></i>
               <span></span>
             </div>
           </div>
@@ -652,17 +645,17 @@
 
           <div class="sharing-buttons">
             <button type="button" class="share-btn" data-platform="telegram">
-              <i class="bi bi-telegram"></i>
+              <i class="bi bi-telegram" aria-hidden="true"></i>
               <p>Telegram</p>
             </button>
 
             <button type="button" class="share-btn" data-platform="vk">
-              <i class="fa-brands fa-vk"></i>
+              <i class="fa-brands fa-vk" aria-hidden="true"></i>
               <p>ВКонтакте</p>
             </button>
 
             <button type="button" class="share-btn" data-platform="copy">
-              <i class="bi bi-link-45deg"></i>
+              <i class="bi bi-link-45deg" aria-hidden="true"></i>
               <p>Копировать ссылку</p>
             </button>
           </div>
@@ -670,22 +663,22 @@
 
         <!-- Navigation Between Articles -->
         <!-- <nav class="article-navigation">
-               <a href="#" class="nav-prev" style="display: none;">
-                  <i class="bi bi-arrow-left"></i>
-                  <div>
-                     <span>Предыдущая</span>
-                     <strong></strong>
-                  </div>
-               </a>
-
-               <a href="#" class="nav-next" style="display: none;">
-                  <div>
-                     <span>Следующая</span>
-                     <strong></strong>
-                  </div>
-                  <i class="bi bi-arrow-right"></i>
-               </a>
-            </nav> -->
+          <a href="#" class="nav-prev" style="display: none;">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            <div>
+              <span>Предыдущая</span>
+              <strong></strong>
+            </div>
+          </a>
+        
+          <a href="#" class="nav-next" style="display: none;">
+            <div>
+              <span>Следующая</span>
+              <strong></strong>
+            </div>
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </nav> -->
 
         <!-- Related News -->
         <section class="related-news">
@@ -699,8 +692,8 @@
     <!-- ###### END OF NEWS SECTION ###### -->
   </main>
 
-  <footer>
-    <nav class="footer-nav-wrapper">
+  <footer role="contentinfo">
+    <nav aria-label="Основная навигация по сайту" class="footer-nav-wrapper">
       <ul class="footer-nav" role="list">
         <li class="footer-nav-item">
           <a href="o-khrame.html" class="footer-nav-link">О храме</a>
@@ -729,15 +722,15 @@
 
       <div class="footer-info-socials">
         <a href="https://t.me/afipskii_hram" rel="noopener" target="_blank" title="Телеграм">
-          <i class="bi bi-telegram"></i>
+          <i class="bi bi-telegram" aria-hidden="true"></i>
         </a>
 
         <a href="https://rutube.ru/channel/26051148" rel="noopener" target="_blank" title="Рутуб">
-          <i class="bi bi-youtube"></i>
+          <i class="bi bi-youtube" aria-hidden="true"></i>
         </a>
 
         <a href="http://vk.com/id849404678" rel="noopener" target="_blank" title="ВКонтакте">
-          <i class="fa-brands fa-vk"></i>
+          <i class="fa-brands fa-vk" aria-hidden="true"></i>
         </a>
       </div>
     </div>
