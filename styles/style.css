@@ -709,8 +709,6 @@ p {
    font-weight: var(--font-weight-2);
    transition: all .3s ease;
    box-shadow: 0 4px 18px transparent;
-   position: relative;
-   overflow: hidden;
 }
 
 .schedule-refresh-btn:hover,
@@ -3202,10 +3200,11 @@ footer {
 
 
 /* ######################## */
-/* ### О храме ### */
+/* ### O-khrame / SVYATYNI ### */
 /* ###################### */
 
-.about-header {
+.about-header,
+.svyatyni-header {
    background-color: rgb(255, 255, 255);
    box-shadow: 0 5px 25px rgba(0 0 0 / .06);
    /* border-bottom: 1px solid #e8e8e8; */
@@ -3219,21 +3218,24 @@ footer {
    z-index: 1000;
 }
 
-.about-back-btn {
+.about-back-btn,
+.svyatyni-back-btn {
    position: absolute;
    top: 50%;
    transform: translateY(-50%);
    left: clamp(0.85rem, -1.3155rem + 9.2394vw, 7rem);
    color: var(--color-black);
-   font-size: 1.035rem;
+   font-size: 1.025rem;
 }
 
-.about-header-title {
+.about-header-title,
+.svyatyni-header-title {
    color: var(--color-black);
    font-size: 1.6rem;
 }
 
-.about-body {
+.about-body,
+.svyatyni-body {
    padding-inline: clamp(0.85rem, -1.3155rem + 9.2394vw, 7rem);
    margin-bottom: 1.25rem;
 }
@@ -3252,4 +3254,88 @@ footer {
    display: flex;
    flex-direction: column;
    gap: var(--gap-1);
+}
+
+
+/* ### SVYATYNI ### */
+
+.tab-content-body {
+   display: flex;
+   flex-direction: column;
+   gap: var(--gap-3);
+}
+
+.tab-content-title {
+   font-size: 1.15rem;
+}
+
+.tab-content-text a {
+   color: var(--color-accent);
+   text-decoration: underline;
+}
+
+.tab-content-image {
+   border-radius: var(--br-3);
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+}
+
+
+
+/* ### SVYATYNI TABS ### */
+
+.svyatyni-nav {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: var(--gap-2);
+   padding-inline: clamp(0.85rem, -1.3155rem + 9.2394vw, 7rem);
+   margin-bottom: 2rem;
+}
+
+.svyatyni-tab-btn {
+   background: var(--color-white);
+   box-shadow: 0 4px 18px transparent;
+   color: #595d67;
+   border: 1.5px solid #e5e7eb;
+   padding: .5rem 1rem;
+   border-radius: var(--br-2);
+   font-size: .85rem;
+   font-weight: var(--font-weight-2);
+   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+   text-align: center;
+   cursor: pointer;
+   display: block;
+   text-decoration: none;
+}
+
+.svyatyni-tab-btn:hover {
+   background: #f9fafb;
+   color: var(--color-accent);
+   border-color: var(--color-accent);
+   box-shadow: 0 4px 18px rgba(0, 0, 0, .08);
+   /* background: rgba(204, 101, 52, 0.02); */
+}
+
+.svyatyni-tab-btn.svyatyniTabActive {
+   background: var(--color-accent);
+   color: white;
+   border-color: var(--color-accent);
+   box-shadow: 0 4px 16px rgba(204, 101, 52, 0.3);
+}
+
+.svyatyni-tab-btn:focus-visible {
+   outline: 3px solid rgba(204, 101, 52, 0.5);
+   outline-offset: 2px;
+}
+
+/* Tab Content */
+.svyatyni-tab-content {
+   display: none;
+   animation: fadeInUp .4s ease;
+}
+
+.svyatyni-tab-content.svyatyniContentActive {
+   display: block;
 }

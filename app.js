@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
    initPerformanceMonitoring();
    initScheduleSystem();
    initNewsSystem();
+   initSvyatyniTabs();
 
    console.log('🚀 All systems initialized');
 
@@ -772,12 +773,12 @@ class ScheduleManager {
             this.scrollToToday();
          }
 
-         this.debug('📅 Schedule data loaded successfully', this.scheduleData);
-         this.showNotification(
-            'success',
-            'Расписание загружено',
-            'Данные успешно обновлены'
-         );
+         // this.debug('📅 Schedule data loaded successfully', this.scheduleData);
+         // this.showNotification(
+         //    'success',
+         //    'Расписание загружено',
+         //    'Данные успешно обновлены'
+         // );
       } catch (error) {
          this.debug('❌ Error loading schedule data', error);
          this.showError(error.message);
@@ -3400,3 +3401,141 @@ window.newsDebug = {
       console.log('🐛 News debug logs exported');
    },
 };
+
+/**
+ * Svyatyni Tabs Management System
+ * Handles tab switching for the Saints/Relics page with accessibility features
+ */
+class SvyatyniTabsManager {
+   constructor() {
+      this.activeTabClass = 'svyatyniTabActive';
+      this.activeContentClass = 'svyatyniContentActive';
+      this.init();
+   }
+
+   init() {
+      this.setupEventListeners();
+      this.setupKeyboardNavigation();
+      this.ensureInitialState();
+      this.debug('🏛️ Svyatyni Tabs Manager initialized');
+   }
+
+   debug(message) {
+      if (window.scheduleManager?.settings?.debugMode) {
+         console.log(`[SvyatyniTabs] ${message}`);
+      }
+   }
+
+   setupEventListeners() {
+      const tabButtons = document.querySelectorAll('.svyatyni-tab-btn');
+      
+      tabButtons.forEach(button => {
+         button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = button.getAttribute('href').substring(1);
+            this.switchTab(targetId, button);
+         });
+      });
+   }
+
+   setupKeyboardNavigation() {
+      const tabButtons = document.querySelectorAll('.svyatyni-tab-btn');
+      
+      tabButtons.forEach((button, index) => {
+         button.addEventListener('keydown', (e) => {
+            let targetIndex;
+            
+            switch(e.key) {
+               case 'ArrowRight':
+               case 'ArrowDown':
+                  e.preventDefault();
+                  targetIndex = (index + 1) % tabButtons.length;
+                  tabButtons[targetIndex].focus();
+                  break;
+               case 'ArrowLeft':
+               case 'ArrowUp':
+                  e.preventDefault();
+                  targetIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+                  tabButtons[targetIndex].focus();
+                  break;
+               case 'Home':
+                  e.preventDefault();
+                  tabButtons[0].focus();
+                  break;
+               case 'End':
+                  e.preventDefault();
+                  tabButtons[tabButtons.length - 1].focus();
+                  break;
+            }
+         });
+      });
+   }
+
+   switchTab(targetId, clickedButton) {
+      // Remove active state from all tabs and content
+      document.querySelectorAll('.svyatyni-tab-btn').forEach(btn => {
+         btn.classList.remove(this.activeTabClass);
+         btn.setAttribute('aria-selected', 'false');
+         btn.setAttribute('tabindex', '-1');
+      });
+
+      document.querySelectorAll('.svyatyni-tab-content').forEach(content => {
+         content.classList.remove(this.activeContentClass);
+         content.setAttribute('aria-hidden', 'true');
+      });
+
+      // Activate clicked tab
+      clickedButton.classList.add(this.activeTabClass);
+      clickedButton.setAttribute('aria-selected', 'true');
+      clickedButton.setAttribute('tabindex', '0');
+
+      // Show corresponding content
+      const targetContent = document.getElementById(targetId);
+      if (targetContent) {
+         targetContent.classList.add(this.activeContentClass);
+         targetContent.setAttribute('aria-hidden', 'false');
+         
+         // Smooth scroll to content
+         targetContent.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+         });
+      }
+
+      // Update URL hash without page jump
+      if (history.pushState) {
+         history.pushState(null, null, `#${targetId}`);
+      }
+
+      this.debug(`Switched to tab: ${targetId}`);
+   }
+
+   ensureInitialState() {
+      const urlHash = window.location.hash.substring(1);
+      const tabButtons = document.querySelectorAll('.svyatyni-tab-btn');
+      
+      if (urlHash && document.getElementById(urlHash)) {
+         // If there's a hash in URL, activate that tab
+         const targetButton = document.querySelector(`[href="#${urlHash}"]`);
+         if (targetButton) {
+            this.switchTab(urlHash, targetButton);
+            return;
+         }
+      }
+      
+      // Otherwise, ensure first tab is active
+      if (tabButtons.length > 0) {
+         const firstButton = tabButtons[0];
+         const firstTargetId = firstButton.getAttribute('href').substring(1);
+         this.switchTab(firstTargetId, firstButton);
+      }
+   }
+}
+
+// Initialize Svyatyni Tabs when DOM is ready
+function initSvyatyniTabs() {
+   // Only initialize if we're on the svyatyni page
+   if (document.querySelector('.svyatyni-nav')) {
+      window.svyatyniTabsManager = new SvyatyniTabsManager();
+   }
+}
