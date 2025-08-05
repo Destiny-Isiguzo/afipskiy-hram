@@ -1825,6 +1825,7 @@ class AdminPanelManager {
       }
    }
 
+   // Function to create a backup download
    createBackupDownload() {
       const backups = JSON.parse(
          localStorage.getItem('scheduleBackups') || '[]'

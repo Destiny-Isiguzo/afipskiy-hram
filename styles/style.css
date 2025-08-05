@@ -597,7 +597,7 @@ p {
 }
 
 .hero-content-title {
-   font-family: var(--font-primary);
+   /* font-family: var(--font-primary); */
    font-size: clamp(1.7rem, 1.3303rem + 1.5775vw, 2.75rem);
    max-width: 40rem;
 }
@@ -671,7 +671,7 @@ p {
 
 .schedule-title {
    color: var(--color-black);
-   font-family: var(--font-primary);
+   /* font-family: var(--font-primary); */
    font-size: clamp(1.55rem, 1.3035rem + 1.0516vw, 2.25rem);
    margin-bottom: var(--gap-1);
 }
@@ -708,15 +708,13 @@ p {
    font-size: .9rem;
    font-weight: var(--font-weight-2);
    transition: all .3s ease;
-   box-shadow: 0 4px 18px transparent;
 }
 
 .schedule-refresh-btn:hover,
 .schedule-share-btn:hover {
-   background: #f9fafb;
-   color: var(--color-accent);
+   /* background: #f9fafb; */
    border-color: var(--color-accent);
-   box-shadow: 0 4px 18px rgba(0, 0, 0, .08);
+   color: var(--color-accent);
 }
 
 .schedule-refresh-btn:focus,
@@ -2165,7 +2163,7 @@ input[type="checkbox"]:focus-visible {
 
 .news-title {
    color: var(--color-black);
-   font-family: var(--font-primary);
+   /* font-family: var(--font-primary); */
    font-size: clamp(1.55rem, 1.3035rem + 1.0516vw, 2.25rem);
    margin-bottom: var(--gap-1);
    position: relative;
@@ -2177,7 +2175,7 @@ input[type="checkbox"]:focus-visible {
    font-weight: var(--font-weight-2);
 }
 
-/* News Tabs - Redesigned */
+/* News Tabs */
 .news-tabs {
    display: flex;
    justify-content: space-between;
@@ -2191,6 +2189,7 @@ input[type="checkbox"]:focus-visible {
 
 .news-tab {
    display: flex;
+   justify-content: center;
    align-items: center;
    gap: var(--gap-1);
    padding: .65rem clamp(1rem, 0.8944rem + 0.4507vw, 1.3rem);
@@ -2228,7 +2227,7 @@ input[type="checkbox"]:focus-visible {
    justify-content: space-between;
    align-items: center;
    gap: 1.5rem;
-   margin-bottom: clamp(2rem, 1.8239rem + 0.7512vw, 2.5rem);
+   margin-bottom: 2.5rem;
    flex-wrap: wrap;
 }
 
