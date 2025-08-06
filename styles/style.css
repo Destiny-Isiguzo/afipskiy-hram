@@ -630,7 +630,15 @@ p {
    background-color: rgb(234, 124, 73);
 }
 
-/* @media screen and (max-width: 57em) {
+/* @media screen and (max-width: 40em) {
+   .hero-content-title {
+      text-align: center;
+   }
+
+   .hero-content-text {
+      text-align: center;
+   }
+
    .hero-content a {
       justify-content: center;
       width: 100%;
